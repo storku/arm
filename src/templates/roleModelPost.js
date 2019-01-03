@@ -1,17 +1,22 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
+import Layout from '../components/layout'
 
 const Template = props => {
-  console.log(props)
   const {
     frontmatter: { title },
     html,
   } = props.data.markdownRemark
+
+  const { prev, next } = props.pageContext
+
   return (
-    <div>
+    <Layout>
       <h1>{title}</h1>
       <div dangerouslySetInnerHTML={{ __html: html }} />
-    </div>
+      {prev && <Link to={prev.frontmatter.path}>Previous</Link>}
+      {next && <Link to={next.frontmatter.path}>Next</Link>}
+    </Layout>
   )
 }
 
