@@ -1,5 +1,5 @@
 ---
-path: '/bruce_lee'
+path: '/people/bruce_lee'
 date: '2019-01-02'
 title: 'Bruce Lee'
 first_name: 'Bruce'
