@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Asian Role Models',
-    description: 'Sucessful East and Southeast Asians in the West',
+    description: 'Successful East and Southeast Asian Diaspora',
   },
   plugins: [
     'gatsby-transformer-remark',

@@ -9,7 +9,7 @@ const IndexPage = props => {
     <Layout>
       <h1>Hello Everyone!</h1>
       <p>Welcome to {title}</p>
-      <p>Let's do something great.</p>
+      <p>{description}</p>
       {edges.map(edge => {
         const {
           frontmatter: { title, path },
@@ -21,6 +21,9 @@ const IndexPage = props => {
         )
       })}
       <Link to="/page-2/">Go to page 2</Link>
+      <div>
+        <Link to="tags">Browse by Tags</Link>
+      </div>
     </Layout>
   )
 }
