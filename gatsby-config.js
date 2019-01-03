@@ -1,14 +1,23 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Asian Role Models',
+    description: 'Sucessful East and Southeast Asians in the West',
   },
   plugins: [
+    'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
       },
     },
     'gatsby-transformer-sharp',
