@@ -20,7 +20,6 @@ const IndexPage = props => {
           </div>
         )
       })}
-      <Link to="/page-2/">Go to page 2</Link>
       <div>
         <Link to="tags">Browse by Tags</Link>
       </div>
@@ -36,7 +35,10 @@ export const query = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___title] }) {
+    allMarkdownRemark(
+      sort: { order: ASC, fields: [frontmatter___title] }
+      filter: { frontmatter: { published: { eq: true } } }
+    ) {
       edges {
         node {
           frontmatter {
