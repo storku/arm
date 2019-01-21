@@ -13,6 +13,8 @@ profession: ['basketball player']
 tags: ['sports', 'basketball']
 notable: 'Profession basketball player who plays in the NBA'
 excerpts: 'Life and Times of Jeremy Lin'
+attachments:
+  - '../../../images/jeremy_lin.jpg'
 ---
 
 Lorem Ipsum

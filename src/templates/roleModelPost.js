@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
+// import Paper from '@material-ui/core/Paper'
 import Layout from '../components/layout'
 
 const Template = props => {
@@ -14,7 +15,9 @@ const Template = props => {
     profession,
     tags,
     notable,
+    attachments,
   } = frontmatter
+  const { publicURL } = attachments[0]
 
   console.log({ props })
 
@@ -23,9 +26,15 @@ const Template = props => {
       <div>
         <h1>{title}</h1>
       </div>
-      <div>
+      <div className="PersonInfobox">
         <ul>
-          <li>Birthday: {birth_date}</li>
+          <li>
+            <img src={publicURL} />
+          </li>
+          <li>
+            <div className="Field">Birthday:</div>
+            <div className="Property">{birth_date}</div>
+          </li>
           <li>Ethnicity: {ethnicity.reduce((acc, cur) => `${acc}, ${cur}`)}</li>
           <li>
             Nationality: {nationality.reduce((acc, cur) => `${acc}, ${cur}`)}
@@ -45,7 +54,7 @@ const Template = props => {
 }
 
 export const query = graphql`
-  query($pathSlug: String!) {
+  query RoleModelPostByPath($pathSlug: String!) {
     markdownRemark(frontmatter: { path: { eq: $pathSlug } }) {
       html
       frontmatter {
@@ -62,6 +71,9 @@ export const query = graphql`
         tags
         notable
         excerpts
+        attachments {
+          publicURL
+        }
       }
     }
   }

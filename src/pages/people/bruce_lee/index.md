@@ -13,6 +13,8 @@ profession: ['martial artist', 'actor', 'director', 'film producer']
 tags: ['movies', 'martial arts', 'actor', 'fighter', 'philosopher']
 notable: 'Martial artist and film maker who created and popularized a genre'
 excerpts: 'Life and Times of Bruce Lee'
+attachments:
+  - '../../../images/bruce_lee.jpg'
 ---
 
 Lorem Ipsum

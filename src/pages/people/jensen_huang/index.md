@@ -13,6 +13,10 @@ profession: ['entrepreneur', 'businessman']
 tags: ['entrepreneur', 'technology', 'ceo']
 notable: 'Founder and CEO of NVIDIA, the designer of graphical processing units or GPUs'
 excerpts: 'Life and Times of Jensen Huang'
+attachments:
+  - '../../../images/jensen_huang.jpg'
 ---
 
-Lorem Ipsum
+## Jensen Huang
+
+#### Founder and CEO of NVIDIA

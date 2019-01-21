@@ -13,6 +13,8 @@ profession: ['musician', 'dj', 'record producer', 'music executive']
 tags: ['music', 'edm', 'dj']
 notable: 'DJ, producer and music executive most famous for his electronic music'
 excerpts: 'Life and Times of Steve Aoki'
+attachments:
+  - '../../../images/steve_aoki.jpg'
 ---
 
 Lorem Ipsum
