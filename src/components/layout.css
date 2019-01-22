@@ -623,19 +623,30 @@ pre tt:after {
   }
 }
 
-.PersonInfobox ul {
-  list-style-type: none;
+img {
+  width: 300px;
 }
 
-.PersonInfobox ul li {
+dl {
+  width: 300px;
+}
+
+dl div {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0.5rem;
 }
 
-.PersonInfobox .Field {
+dl div dt {
   font-size: 1rem;
+  font-weight: normal;
 }
 
-.PersonInfobox img {
-  width: 300px;
+dl div dd {
+  margin: 0;
+  font-weight: bold;
+}
+
+dl div dd a {
+  margin-right: 0.2rem;
 }

@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 
-const SingleTagTemplate = ({ data, pageContext }) => {
-  const { posts, tagName } = pageContext
+const SingleItemTemplate = ({ data, pageContext }) => {
+  const { posts, itemName } = pageContext
   return (
     <Layout>
-      <div>Posts about {tagName}</div>
+      <div>Posts about {itemName}</div>
       <div>
         <ul>
           {posts.map(post => {
@@ -23,4 +23,4 @@ const SingleTagTemplate = ({ data, pageContext }) => {
   )
 }
 
-export default SingleTagTemplate
+export default SingleItemTemplate

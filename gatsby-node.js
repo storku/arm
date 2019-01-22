@@ -1,5 +1,40 @@
 const path = require(`path`)
+const createPageNodes = require('./utils/createPageNodes')
 
+//create pages for ethnicity
+const createEthnicityPages = (createPage, posts) => {
+  createPageNodes(
+    createPage,
+    posts,
+    'ethnicity',
+    'allItemsIndex',
+    'singleItemIndex'
+  )
+}
+
+//create pages for nationality
+const createNationalityPages = (createPage, posts) => {
+  createPageNodes(
+    createPage,
+    posts,
+    'nationality',
+    'allItemsIndex',
+    'singleItemIndex'
+  )
+}
+
+//create pages for profession
+const createProfessionPages = (createPage, posts) => {
+  createPageNodes(
+    createPage,
+    posts,
+    'profession',
+    'allItemsIndex',
+    'singleItemIndex'
+  )
+}
+
+//create pages for tags
 const createTagPages = (createPage, posts) => {
   const allTagsIndexTemplate = path.resolve('src/templates/allTagsIndex.js')
   const singleTagIndexTemplate = path.resolve('src/templates/singleTagIndex.js')
@@ -57,6 +92,9 @@ exports.createPages = ({ graphql, actions }) => {
             frontmatter {
               path
               title
+              ethnicity
+              nationality
+              profession
               tags
             }
           }
@@ -71,6 +109,10 @@ exports.createPages = ({ graphql, actions }) => {
     const posts = result.data.allMarkdownRemark.edges
 
     createTagPages(createPage, posts)
+
+    createEthnicityPages(createPage, posts)
+    createNationalityPages(createPage, posts)
+    createProfessionPages(createPage, posts)
 
     posts.forEach((edge, index) => {
       const path = edge.node.frontmatter.path

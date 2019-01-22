@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 // import Paper from '@material-ui/core/Paper'
 import Layout from '../components/layout'
+import itemsToLinks from '../utils/itemsToLinks'
 
 const Template = props => {
   const { frontmatter, html } = props.data.markdownRemark
@@ -27,24 +28,35 @@ const Template = props => {
         <h1>{title}</h1>
       </div>
       <div className="PersonInfobox">
-        <ul>
-          <li>
-            <img src={publicURL} />
-          </li>
-          <li>
-            <div className="Field">Birthday:</div>
-            <div className="Property">{birth_date}</div>
-          </li>
-          <li>Ethnicity: {ethnicity.reduce((acc, cur) => `${acc}, ${cur}`)}</li>
-          <li>
-            Nationality: {nationality.reduce((acc, cur) => `${acc}, ${cur}`)}
-          </li>
-          <li>
-            Profession: {profession.reduce((acc, cur) => `${acc}, ${cur}`)}
-          </li>
-          <li>Notable: {notable}</li>
-          <li>Tags: {tags.reduce((acc, cur) => `${acc}, ${cur}`)}</li>
-        </ul>
+        <div className="ProtraitImage">
+          <img src={publicURL} alt="main" />
+        </div>
+        <dl>
+          <div>
+            <dt>Birthday:</dt>
+            <dd>{birth_date}</dd>
+          </div>
+          <div>
+            <dt>Ethnicity:</dt>
+            <dd>{itemsToLinks(ethnicity, 'ethnicity')}</dd>
+          </div>
+          <div>
+            <dt>Nationality:</dt>
+            <dd>{itemsToLinks(nationality, 'nationality')}</dd>
+          </div>
+          <div>
+            <dt>Profession:</dt>
+            <dd>{itemsToLinks(profession, 'profession')}</dd>
+          </div>
+          <div>
+            <dt>Notable:</dt>
+            <dd>{notable}</dd>
+          </div>
+          <div>
+            <dt>Tags:</dt>
+            <dd>{itemsToLinks(tags, 'tags')}</dd>
+          </div>
+        </dl>
       </div>
       <div dangerouslySetInnerHTML={{ __html: html }} />
       {prev && <Link to={prev.frontmatter.path}>Previous</Link>}
