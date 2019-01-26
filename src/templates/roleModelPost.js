@@ -24,43 +24,48 @@ const Template = props => {
 
   return (
     <Layout>
-      <div>
-        <h1>{title}</h1>
-      </div>
-      <div className="PersonInfobox">
-        <div className="ProtraitImage">
-          <img src={publicURL} alt="main" />
+      <div className="contentGrid">
+        <div className="pageTitle">
+          <h1>{title}</h1>
         </div>
-        <dl>
-          <div>
-            <dt>Birthday:</dt>
-            <dd>{birth_date}</dd>
+        <div className="infobox">
+          <div className="infoboxImage">
+            <img src={publicURL} alt="main" />
           </div>
-          <div>
-            <dt>Ethnicity:</dt>
-            <dd>{itemsToLinks(ethnicity, 'ethnicity')}</dd>
-          </div>
-          <div>
-            <dt>Nationality:</dt>
-            <dd>{itemsToLinks(nationality, 'nationality')}</dd>
-          </div>
-          <div>
-            <dt>Profession:</dt>
-            <dd>{itemsToLinks(profession, 'profession')}</dd>
-          </div>
-          <div>
-            <dt>Notable:</dt>
-            <dd>{notable}</dd>
-          </div>
-          <div>
-            <dt>Tags:</dt>
-            <dd>{itemsToLinks(tags, 'tags')}</dd>
-          </div>
-        </dl>
+          <dl className="infoboxContent">
+            <div>
+              <dt>Birthday:</dt>
+              <dd>{birth_date}</dd>
+            </div>
+            <div>
+              <dt>Ethnicity:</dt>
+              <dd>{itemsToLinks(ethnicity, 'ethnicity')}</dd>
+            </div>
+            <div>
+              <dt>Nationality:</dt>
+              <dd>{itemsToLinks(nationality, 'nationality')}</dd>
+            </div>
+            <div>
+              <dt>Profession:</dt>
+              <dd>{itemsToLinks(profession, 'profession')}</dd>
+            </div>
+            <div>
+              <dt>Notable:</dt>
+              <dd>{notable}</dd>
+            </div>
+            <div>
+              <dt>Tags:</dt>
+              <dd>{itemsToLinks(tags, 'tags')}</dd>
+            </div>
+          </dl>
+        </div>
+        <div className="mainInfo">
+          <p>Hello Hello Hello </p>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+          {prev && <Link to={prev.frontmatter.path}>Previous</Link>}
+          {next && <Link to={next.frontmatter.path}>Next</Link>}
+        </div>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-      {prev && <Link to={prev.frontmatter.path}>Previous</Link>}
-      {next && <Link to={next.frontmatter.path}>Next</Link>}
     </Layout>
   )
 }

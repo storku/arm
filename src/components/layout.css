@@ -623,6 +623,73 @@ pre tt:after {
   }
 }
 
+/* desktop layout */
+@media only screen and (min-width: 601px) {
+  .grid {
+    display: grid;
+    grid-template-areas:
+      'header'
+      'content'
+      'footer';
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+
+  .contentGrid {
+    grid-area: content;
+    display: grid;
+    grid-template-areas:
+      'infobox title'
+      'infobox main';
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .infobox {
+    grid-area: infobox;
+  }
+
+  .pageTitle {
+    grid-area: title;
+  }
+
+  .mainInfo {
+    grid-area: main;
+  }
+}
+
+/* mobile layout */
+@media only screen and (max-width: 600px) {
+  .contentGrid {
+    grid-template-areas:
+      'title'
+      'infoboxImage'
+      'infoboxContent'
+      'main';
+    grid-template-columns: 1fr;
+    grid-template-rows:
+      auto /*infoboxImage*/
+      auto /*title*/
+      auto /*infoboxContent*/
+      1fr; /*main*/
+  }
+
+  .infoboxImage {
+    grid-area: 'infoboxImage';
+  }
+
+  .infoboxContent {
+    grid-area: 'infoboxContent';
+  }
+}
+
 img {
   width: 300px;
 }
@@ -638,15 +705,15 @@ dl div {
 }
 
 dl div dt {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: normal;
 }
 
 dl div dd {
   margin: 0;
-  font-weight: bold;
 }
 
 dl div dd a {
+  text-decoration: none;
   margin-right: 0.2rem;
 }

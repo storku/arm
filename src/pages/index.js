@@ -21,6 +21,15 @@ const IndexPage = props => {
         )
       })}
       <div>
+        <Link to="ethnicity">Browse by Ethnicity</Link>
+      </div>
+      <div>
+        <Link to="nationality">Browse by Nationality</Link>
+      </div>
+      <div>
+        <Link to="profession">Browse by Profession</Link>
+      </div>
+      <div>
         <Link to="tags">Browse by Tags</Link>
       </div>
     </Layout>
