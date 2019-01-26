@@ -4,6 +4,7 @@ module.exports = {
     description: 'Successful East and Southeast Asian Diaspora',
   },
   plugins: [
+    'gatsby-plugin-jss',
     'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
     {

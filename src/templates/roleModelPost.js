@@ -1,10 +1,72 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
+import injectSheet from 'react-jss'
 // import Paper from '@material-ui/core/Paper'
 import Layout from '../components/layout'
 import itemsToLinks from '../utils/itemsToLinks'
 
+const styles = {
+  '@media (min-width: 601px)': {
+    contentGrid: {
+      display: 'grid',
+      grid: {
+        templateAreas: `
+          'infobox title'
+          'infobox main'`,
+        templateColumns: '1fr 3fr',
+        templateRows: 'auto 1fr',
+        gap: '0 1rem',
+      },
+    },
+    infobox: {
+      grid: {
+        area: 'infobox',
+      },
+    },
+    pageTitle: {
+      grid: {
+        area: 'title',
+      },
+    },
+    mainInfo: {
+      grid: {
+        area: 'main',
+      },
+    },
+  },
+
+  '@media (max-width: 600px)': {
+    contentGrid: {
+      display: 'grid',
+      grid: {
+        templateAreas: `
+        'title'
+        'infoboxImage'
+        'infoboxContent'
+        'main'`,
+        templateColumns: '1fr',
+        templateRows: `
+        auto
+        auto
+        auto
+        1fr`,
+      },
+    },
+    infoboxImage: {
+      grid: {
+        area: 'infoboxImage',
+      },
+    },
+    infoboxContent: {
+      grid: {
+        area: 'infoboxContent',
+      },
+    },
+  },
+}
+
 const Template = props => {
+  const { classes } = props
   const { frontmatter, html } = props.data.markdownRemark
   const { prev, next } = props.pageContext
 
@@ -24,15 +86,15 @@ const Template = props => {
 
   return (
     <Layout>
-      <div className="contentGrid">
-        <div className="pageTitle">
+      <div className={classes.contentGrid}>
+        <div className={classes.pageTitle}>
           <h1>{title}</h1>
         </div>
-        <div className="infobox">
-          <div className="infoboxImage">
+        <div className={classes.infobox}>
+          <div className={classes.infoboxImage}>
             <img src={publicURL} alt="main" />
           </div>
-          <dl className="infoboxContent">
+          <dl className={classes.infoboxContent}>
             <div>
               <dt>Birthday:</dt>
               <dd>{birth_date}</dd>
@@ -59,7 +121,7 @@ const Template = props => {
             </div>
           </dl>
         </div>
-        <div className="mainInfo">
+        <div className={classes.mainInfo}>
           <p>Hello Hello Hello </p>
           <div dangerouslySetInnerHTML={{ __html: html }} />
           {prev && <Link to={prev.frontmatter.path}>Previous</Link>}
@@ -96,4 +158,4 @@ export const query = graphql`
   }
 `
 
-export default Template
+export default injectSheet(styles)(Template)
